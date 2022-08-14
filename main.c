@@ -3,15 +3,17 @@
 
 #define SPACER printf("----------------------------------------------\n")
 
-void insertion_sort(int* arr, int length);
 
+void insertion_sort(int* arr, int length);
 int binary_search(int* arr, int length, int key);
+
 
 int main(){
     SPACER;
     printf("                WELCOME             \n");
     SPACER;
 
+    // Read the array elements from user and the key to search for 
     int array_length, key, index;
     printf("Enter the array size: ");
     scanf("%d", &array_length);
@@ -27,6 +29,7 @@ int main(){
     scanf("%d", &key);
     SPACER;
 
+    // Print array before sorting
     printf("Unsorted array = {%d", array[0]);
     for(int i=1; i<array_length; i++){
         printf(", %d", array[i]);
@@ -35,6 +38,8 @@ int main(){
     SPACER;
     
     index = binary_search(array, array_length, key);
+    
+    // Print array after sorting
     printf("Sorted array   = {%d", array[0]);
     for(int i=1; i<array_length; i++){
         printf(", %d", array[i]);
@@ -42,7 +47,7 @@ int main(){
     printf("}\n");
     SPACER;
 
-    if(key == -1){
+    if(index == -1){
         printf("The key (%d) is not found in the array.\n", key);
     }
     else{
